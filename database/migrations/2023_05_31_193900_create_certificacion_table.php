@@ -15,6 +15,15 @@ class CreateCertificacionsTable extends Migration
     {
         Schema::create('certificacion', function (Blueprint $table) {
             $table->increments('id');
+            $table->INTEGER('identificacion');
+            $table->INTEGER('concepto');
+            $table->date('fecha acumula');
+            $table->date('fecha inicio');
+            $table->date('fecha fin');
+            $table->BigInt('valor total');
+            
+            
+
             $table->string('nombre');
             $table->timestamps();
         });
