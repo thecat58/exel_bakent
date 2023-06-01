@@ -9,5 +9,5 @@ class certificacion extends Model
 {
     use HasFactory;
     protected $table='certificacion';
-    protected $gurded=[];
+    protected $guarded=[];
 }

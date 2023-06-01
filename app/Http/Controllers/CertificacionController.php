@@ -27,12 +27,12 @@ class CertificacionController extends Controller
      */
     public function store(Request $request)
     {
-        $data= $request-> all();
-        $certificacion=new certificacion($data);
+        $data = $request->all();
+        $certificacion = new certificacion($data);
         $certificacion->save();
-        return response()->json(['message'=>'la certificacion se guardo']);
-
+        return response()->json(['message' => 'Datos recibidos y procesados correctamente']);
     }
+    
 
     /**
      * Display the specified resource.

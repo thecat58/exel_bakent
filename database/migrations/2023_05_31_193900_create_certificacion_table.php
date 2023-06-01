@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCertificacionsTable extends Migration
+class CreateCertificacionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,18 +17,19 @@ class CreateCertificacionsTable extends Migration
             $table->increments('id');
             $table->INTEGER('identificacion');
             $table->INTEGER('concepto');
-            $table->date('fecha acumula');
-            $table->date('fecha inicio');
-            $table->date('fecha fin');
-            $table->BigInt('valor total');
-            $table->BigInt('valor real');       
+            $table->string('tipoNomina');
+            $table->date('fechaAcumula');
+            $table->date('fechaInicio');
+            $table->date('fechaFin');
+            $table->double('valorTotal');
+            $table->double('valorReal');       
             $table->string('nombres');
             $table->string('apellidos');
-            $table->string('nombres completos');
-            $table->string('descripcion centro de trabajo');
-            $table->string('descripción Centro de Costo');
-            $table->string('descripción Clase Nómina');
-            $table->string('nombre cargo');
+            $table->string('nombreCompletos');
+            $table->string('descripcionCentroTrabajo');
+            $table->string('descripciónCentroCosto');
+            $table->string('descripciónClaseNómina');
+            $table->string('nombreCargo')->nullable();
             $table->timestamps();
         });
     }

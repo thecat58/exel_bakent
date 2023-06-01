@@ -29,6 +29,7 @@ use App\Http\Controllers\ProyectoFormativoController;
 use App\Http\Controllers\TipoProgramasController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\RegionalController;
+use App\Http\Controllers\CertificacionController;
 
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
@@ -170,3 +171,6 @@ Route::resource('regionales', RegionalController::class);
 
 //asignacion competencias raps
 Route::get('competenciaRap/competencia/{id}', [asignacionCompetenciaRapController::class, 'showByCompetencia']);
+
+//certificacion
+Route::resource('certificacion', CertificacionController::class);
