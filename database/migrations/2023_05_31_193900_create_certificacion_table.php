@@ -21,10 +21,14 @@ class CreateCertificacionsTable extends Migration
             $table->date('fecha inicio');
             $table->date('fecha fin');
             $table->BigInt('valor total');
-            
-            
-
-            $table->string('nombre');
+            $table->BigInt('valor real');       
+            $table->string('nombres');
+            $table->string('apellidos');
+            $table->string('nombres completos');
+            $table->string('descripcion centro de trabajo');
+            $table->string('descripción Centro de Costo');
+            $table->string('descripción Clase Nómina');
+            $table->string('nombre cargo');
             $table->timestamps();
         });
     }
