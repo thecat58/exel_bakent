@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\certificacion;
+use App\Models\cargarCertificados;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\DatosExport; 
 
-class CertificacionController extends Controller
+class cargarCertificadosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,7 @@ class CertificacionController extends Controller
      */
     public function index()
     {
-        $data= certificacion::all();
-        return response()->json($data);
+        //
     }
 
     /**
@@ -27,10 +28,7 @@ class CertificacionController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $certificacion = new certificacion($data);
-        $certificacion->save();
-        return response()->json(['message' => 'Datos recibidos y procesados correctamente']);
+       //
     }
     
 
@@ -40,7 +38,7 @@ class CertificacionController extends Controller
      * @param  \App\Models\certificacion  $certificacion
      * @return \Illuminate\Http\Response
      */
-    public function show(certificacion $certificacion)
+    public function show(cargarCertificados $certificacion)
     {
         //
     }
@@ -52,19 +50,27 @@ class CertificacionController extends Controller
      * @param  \App\Models\certificacion  $certificacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, certificacion $certificacion)
+    public function update(Request $request, cargarCertificados $certificacion)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\certificacion  $certificacion
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(certificacion $certificacion)
-    {
-        //
+    public function importar (Request $request){
+        if ($request-> hasFile('documento')){
+            $path=$request->file('documento')->getRealPath();
+            $datos=Excel::load($path, function($reader){
+            })->get();
+
+            if (!empty($datos) && $datos->count()){
+                $datos=$datos->toArray();
+                for($i=0; $i< count($datos); $i++){
+                    $datosImportar[]=$datos[$i];
+                }
+            }
+
+            cargarCertificados::insert($datosImportar);
+        }
+
+        return back();
     }
 }

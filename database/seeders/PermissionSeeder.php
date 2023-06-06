@@ -48,7 +48,7 @@ class PermissionSeeder extends Seeder
         $this->savePermission(PermissionConst::CALENDARIO, "Calendario");
         $this->savePermission(PermissionConst::REGIONAL, "Regional");
         $this->savePermission(PermissionConst::CENTRO_FORMACION, "gestion de centros de formacion");
-        $this->savePermission(PermissionConst::CERTIFICACION, "gestion de nomina");
+        $this->savePermission(PermissionConst::CARGAR_CERTIFICADOS, "gestion de nomina");
     }
 
     private function savePermission($name, $description)

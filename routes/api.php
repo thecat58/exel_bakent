@@ -29,11 +29,13 @@ use App\Http\Controllers\ProyectoFormativoController;
 use App\Http\Controllers\TipoProgramasController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\RegionalController;
-use App\Http\Controllers\CertificacionController;
+use App\Http\Controllers\cargarCertificadosController;
+
 
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 use App\Http\Controllers\VentasController;
+use App\Models\cargarCertificados;
 use App\Models\EstadoGrupo;
 use App\Models\NivelFormacion;
 use App\Models\User;
@@ -173,4 +175,5 @@ Route::resource('regionales', RegionalController::class);
 Route::get('competenciaRap/competencia/{id}', [asignacionCompetenciaRapController::class, 'showByCompetencia']);
 
 //certificacion
-Route::resource('certificacion', CertificacionController::class);
+
+Route::post('certificacion',  [cargarCertificadosController::class, 'importar']);
