@@ -30,8 +30,7 @@ use App\Http\Controllers\TipoProgramasController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\RegionalController;
 use App\Http\Controllers\cargarCertificadosController;
-
-
+use App\Http\Controllers\PruebaController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 use App\Http\Controllers\VentasController;
@@ -176,4 +175,5 @@ Route::get('competenciaRap/competencia/{id}', [asignacionCompetenciaRapControlle
 
 //certificacion
 
-Route::post('certificacion',  [cargarCertificadosController::class, 'importar']);
+// Route::post('certificacion',  [cargarCertificadosController::class, 'importar']);
+Route::post('prueba', [PruebaController::class,'import']);

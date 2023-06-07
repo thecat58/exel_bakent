@@ -22,13 +22,13 @@ class CreateCertificacionTable extends Migration
             $table->date('fechaInicio');
             $table->date('fechaFin');
             $table->double('valorTotal');
-            $table->double('valorReal');       
+            $table->double('valorReal');
             $table->string('nombres');
             $table->string('apellidos');
             $table->string('nombreCompletos');
             $table->string('descripcionCentroTrabajo');
-            $table->string('descripciónCentroCosto');
-            $table->string('descripciónClaseNómina');
+            $table->string('descripcionCentroCosto');
+            $table->string('descripcionClaseNomina');
             $table->string('nombreCargo')->nullable();
             $table->timestamps();
         });
