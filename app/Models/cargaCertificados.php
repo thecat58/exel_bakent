@@ -9,6 +9,8 @@ class cargaCertificados extends Model
 {
     protected $table = "cargarcertificados";
     protected $guarded = [];
-    public $timestamps =false;
     use HasFactory;
+
+    public $timestamps = false;
+
 }

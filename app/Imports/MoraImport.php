@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\prueba;
+use App\Models\cargaCertificados;
 use Illuminate\Support\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -16,9 +16,9 @@ class MoraImport implements ToModel, WithHeadingRow
      */
     public function model(array $row)
     {
-        return new prueba([
+        return new cargaCertificados([
 
-            'id' => $row['id'] ?? null,
+           'id' => $row['id'] ?? null,
             'identificacion' => $row['identificacion'] ?? null,
             'concepto' => $row['concepto'] ?? null,
             'tipoNomina' => $row['tiponomina'],
@@ -39,6 +39,7 @@ class MoraImport implements ToModel, WithHeadingRow
             'nombreCargo' => $row['nombrecargo'] ?? null,
 
 
+
         ]);
     }
 
@@ -55,7 +56,7 @@ class MoraImport implements ToModel, WithHeadingRow
     // }
 
     private function parseDate($date)
-    {+
+    {
         if (!empty($date)) {
             return Carbon::parse($date)->format('Y-m-d H:i:s');
         }
