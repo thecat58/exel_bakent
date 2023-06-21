@@ -30,8 +30,14 @@ use App\Http\Controllers\ProyectoFormativoController;
 use App\Http\Controllers\TipoProgramasController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\RegionalController;
+<<<<<<< HEAD
 use App\Http\Controllers\TipoRapsController;
 
+=======
+use App\Http\Controllers\cargarCertificadosController;
+use App\Http\Controllers\cargaCertificadosController;
+use App\Http\Controllers\gestion_grupo\GrupoController;
+>>>>>>> 3897d32fb62a15be04a8393a0e5ac414540b7a8a
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 
@@ -219,3 +225,4 @@ Route::get('search/{table}/{query}',[QueryController::class,'show']);
 
 // Route::post('certificacion',  [cargarCertificadosController::class, 'importar']);
 Route::post('nomina', [cargaCertificadosController::class,'import']);
+Route::get('nominaReporte', [cargaCertificadosController::class,'reporte'])->name ('reporte');
