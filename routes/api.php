@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ActividadProyectoController;
 use App\Http\Controllers\asignacionCompetenciaRapController;
+use App\Http\Controllers\AsignacionParticipanteController;
 use App\Http\Controllers\gestion_empresa\CompanyController;
 use App\Http\Controllers\gestion_rol\RolController;
 use App\Http\Controllers\auth\LoginController;
@@ -29,15 +30,28 @@ use App\Http\Controllers\ProyectoFormativoController;
 use App\Http\Controllers\TipoProgramasController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\RegionalController;
-use App\Http\Controllers\cargarCertificadosController;
-use App\Http\Controllers\cargaCertificadosController;
+use App\Http\Controllers\TipoRapsController;
+
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
-use App\Http\Controllers\VentasController;
-use App\Models\cargarCertificados;
-use App\Models\EstadoGrupo;
-use App\Models\NivelFormacion;
-use App\Models\User;
+
+use App\Http\Controllers\gestion_grupo\AsignacionJornadaGrupoController;
+use App\Http\Controllers\gestion_grupo\EstadoGrupoController;
+use App\Http\Controllers\gestion_grupo\GrupoController;
+use App\Http\Controllers\gestion_grupo\NivelFormacionController;
+use App\Http\Controllers\gestion_grupo\TipoFormacionController;
+use App\Http\Controllers\gestion_grupo\TipoGrupoController;
+use App\Http\Controllers\gestion_grupo\TipoOfertaController;
+use App\Http\Controllers\HorarioInfraestructuraGrupoController;
+use App\Models\AsignacionParticipante;
+use App\Models\HorarioInfraestructuraGrupo;
+
+use App\Http\Controllers\gestion_infraestructuras\AreaController;
+use App\Http\Controllers\gestion_infraestructuras\InfraestructuraController;
+use App\Http\Controllers\gestion_infraestructuras\SedeController;
+use App\Http\Controllers\MatriculaController;
+use App\Http\Controllers\QueryController;
+use App\Http\Controllers\cargaCertificadosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,13 +109,18 @@ Route::put('asignar_roles', [Gestion_usuarioUserController::class, 'asignation']
 Route::resource('competencias', CompetenciasController::class);
 //rutas para resultado aprendizaje 2 vanesa
 Route::resource('resultadoAprendizaje', resultadoAprendizajeController::class);
+//asignacion competencias raps
+Route::get('competenciaRap/competencia/{id}', [asignacionCompetenciaRapController::class, 'showByCompetencia']);
+//rutas para tipo resultados aprendizaje
+Route::resource('tipo_resultados',  TipoRapsController::class);
 //rutas para actividad aprendizaje 3 vanesa
 Route::resource('actividadAprendizaje', actividadAprendizajeController::class);
 //ruta tipo_programas
 Route::resource('tipo_programas',  TipoProgramasController::class);
 //ruta para programas
 Route::resource('programas',  ProgramaController::class);
-
+//ruta asignar y guardar competencias raps
+Route::post('resultados', [resultadoAprendizajeController::class, 'store'])->name('resultados.store');
 //ruta para proyecto formativo
 Route::resource('proyecto_formativo', ProyectoFormativoController::class);
 //ruta para fases
@@ -141,6 +160,7 @@ Route::resource('grupos', GrupoController::class);
 Route::get('obtenergrupos', [GrupoController::class, 'buscarGrupos']);
 
 Route::get('usuarios_instructores', [UserController::class, 'instructores']);
+Route::get('usuarios_aprendices', [UserController::class, 'aprendicesActives']);
 
 //tipo de grupos
 Route::resource('tipogrupos', TipoGrupoController::class);
@@ -161,7 +181,15 @@ Route::resource('horario_infraestructura_grupo', HorarioInfraestructuraGrupoCont
 
 Route::get('horario_infraestructura_grupo/grupo/{id}', [HorarioInfraestructuraGrupoController::class, 'infraestructuraByGrupo']);
 
+
+
+
+
+
+// ttttttttttttttttttttttt
+
 Route::resource('asignacion_participante', AsignacionParticipante::class);
+// gggggggggggggggg
 
 
 
@@ -170,10 +198,24 @@ Route::resource('personas', PersonController::class);
 //regional
 Route::resource('regionales', RegionalController::class);
 
-//asignacion competencias raps
-Route::get('competenciaRap/competencia/{id}', [asignacionCompetenciaRapController::class, 'showByCompetencia']);
+Route::resource('centroFormacion', CentroFormacionController::class);
 
-//certificacion
+Route::resource('matriculas', MatriculaController::class);
+
+Route::get('personByIdentificacion/{identificacion}', [PersonController::class, 'personByIdentificacion']);
+
+
+
+Route::resource('asignacionParticipantes', AsignacionParticipanteController::class);
+
+// Route::post('gruposProg', [AsignacionParticipanteController::class, 'obtenerGruposPorPrograma']);
+
+Route::get('/asignacionParticipantes/programas/{idPrograma}/grupos', [AsignacionParticipanteController::class, 'obtenerGruposPorPrograma']);
+
+Route::get('participantesPro', [AsignacionParticipanteController::class, 'obtenerAsignacionesParticipantes']);
+
+
+Route::get('search/{table}/{query}',[QueryController::class,'show']);
 
 // Route::post('certificacion',  [cargarCertificadosController::class, 'importar']);
 Route::post('nomina', [cargaCertificadosController::class,'import']);
