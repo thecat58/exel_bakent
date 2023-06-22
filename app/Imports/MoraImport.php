@@ -22,9 +22,6 @@ class MoraImport implements ToModel, WithHeadingRow
             'identificacion' => $row['identificacion'] ?? null,
             'concepto' => $row['concepto'] ?? null,
             'tipoNomina' => $row['tiponomina'],
-            // 'fechaAcumula' => $row['fechaacumula'],
-            // 'fechaInicio' => $row['fechainicio'],
-            // 'fechaFin' => $row['fechafin'],
             'fechaAcumula' => $this->parseDate($row['fechaacumula']),
             'fechaInicio' => $this->parseDate($row['fechainicio']),
             'fechaFin' => $this->parseDate($row['fechafin']),
@@ -43,17 +40,6 @@ class MoraImport implements ToModel, WithHeadingRow
         ]);
     }
 
-
-
-    // private function parseDate($date)
-    // {
-    //     if (!empty($date)) {
-    //         $date = str_replace('/', '-', $date);
-    //         return Carbon::createFromFormat('d-m-Y 0:00', $date)->toDateTimeString();
-    //     }
-
-    //     return null;
-    // }
 
     private function parseDate($date)
     {

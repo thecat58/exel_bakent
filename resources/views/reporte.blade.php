@@ -1,114 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Reporte</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body>
-    <div class="row">
-        <h1>
-            SERVICIO NACIONAL DE APRENDIZAJE 
-            SENA
-                REGIONAL CAUCA
-        </h1>
-           <h2>CAPACIDAD DE ENDEUDAMIENTO PARA CREDITOS CON PRIMA DE
-                NAVIDAD EMPLEADOS PUBLICOS
-            </h2>
-            
+<style>
+   body {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
         
-        <ul>
-            <li>
-                <label>FECHA ELABORACIÓN:</label>
-                <span>8 de marzo de 2023</span>
-            </li>
-            <li><label>CÉDULA:</label>
-                <span>1.031.133.603</span>
-            </li>
-            <li><label>NOMBRE FUNCIONARIO:</label>
-                <span>BELTRAN PARRA JEISSON ANDRES</span>
-            </li>
-            <li><label>ENTIDAD SOLICITANTE:</label>
-                <span>COOPSENA</span>
-            </li>
-            <li><label> CUOTA SOLICITADA:</label>
-                <span>$</span>
-            </li>
-            <li><label>TIENE CAPACIDAD PAGO:</label>
-                <span>no</span>
-            </li>
-        </ul>
-        <ul>
-            <li>DEVENGADOS FACTORES FIJOS
-            </li>
-            <li>
-                ASIGNACION MENSUAL
-            </li>
-            <li><label>SUBSIDIO DE ALIMENTACION </label>
-                <span>232.000,00</span>
-            </li>
-            <li><label>PRIMA TECNICA FACTOR SALARIO</label>
-                <span>0</span>
-            </li>
-            <li><label>PRIMA DE LOCALIZACION</label>
-                <span>0</span>
-            </li>
-            <li><label>TOTAL DEVENGADOS</label>
-                <span>232.000</span>
-            </li>
-        </ul>
-        <ul>
-            <li>MENOS NOMINA</li>
-            <li><label>EMBARGO ALIMENTOS </label>
-                <span>0</span>
-            </li>
-            <li><label>EMBARGO CIVIL </label>
-                <span>0</span>
-            </li>
-            <li><label>LIBRANZA SERVICIO MEDICO SENA </label>
-                <span>0</span>
-            </li>
-            <li>AHORRO FONDO DE VIVIENDA</li>
-            <li><label>COOPERATIVAS AHORRO</label>
-                <span>0</span>
-            </li>
-            <li><label>COOPERATIVAS PRESTAMO</label>
-                <span>0</span>
-            </li>
-            <li><label>FONDOS DE EMPLEADOS AHORRO</label>
-                <span>0</span>
-            </li>
-            <li><label>FONDOS DE EMPLEADOS PRESTAMO</label>
-                <span>0</span>
-            </li>
-            <li><label>LIBRANZAS ENTIDADES FINANCIERAS </label>
-                <span>0</span>
-            </li>
-            <li><label>OTROS DESCUENTOS </label>
-                <span>0</span>
-            </li>
-            <li class="amarillo"><label>TOTAL DEDUCCIONES</label>
-                <span>0</span>
-            </li>
-        </ul>
-        <ul>
-            <li>SALARIO NETO <label>232.000</label></li>
-            <li>CAPACIDAD DE PAGO DISPONIBLE
-                <label>116.000</label>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                OBSERVACION: ESTA CAPACIDAD SE PODRIA VER AFECTADA POR EMBARGOS
-                DE PRESENTARSE EL CASO.
-            </li>
-        </ul>
+    }
 
-        <h3>Vo. Bo. Coordinador Grupo de Gestion del Talento Humano</h3>
+    h2, h3 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
 
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-    </div>
+    td {
+        padding: 5px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .isquierda{
+        text-align: justify;
+        text-align:right;
+    }
+</style>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="2">
+                <h2>SERVICIO NACIONAL DE APRENDIZAJE</h2>
+                <h2>SENA</h2>
+                <h2>REGIONAL CAUCA</h2>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h3>CAPACIDAD DE ENDEUDAMIENTO PARA CREDITOS CON PRIMA DE NAVIDAD EMPLEADOS PUBLICOS</h3>
+            </td>
+        </tr>
+        <tr>
+            <td class="isquierda">FECHA ELABORACIÓN:</td>
+            <td class="derecha">8 de marzo de 2023</td>
+        </tr>
+        <tr>
+            <td class="isquierda">CÉDULA:</td>
+            <td class="derecha">1.031.133.603</td>
+        </tr>
+        <tr>
+            <td class="derecha">NOMBRE FUNCIONARIO:</td>
+            <td class="isquierda">BELTRAN PARRA JEISSON ANDRES</td>
+        </tr>
+        <tr>
+            <td class="derecha">ENTIDAD SOLICITANTE:</td>
+            <td class="isquierda">COOPSENA</td>
+        </tr>
+        <tr>
+            <td class="derecha">CUOTA SOLICITADA:</td>
+            <td class="isquierda">$1.623.432</td>
+        </tr>
+        <tr>
+            <td class="derecha">TIENE CAPACIDAD PAGO:</td>
+            <td class="isquierda">NO</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h3>DEVENGADOS FACTORES FIJOS</h3>
+            </td>
+        </tr>
+        <tr>
+            <td class="derecha">ASIGNACION MENSUAL</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="derecha">SUBSIDIO DE ALIMENTACION</td>
+            <td class="isquierda">232.000,00</td>
+        </tr>
+        <tr>
+            <td class="derecha">PRIMA TECNICA FACTOR SALARIO</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">PRIMA DE LOCALIZACION</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">TOTAL DEVENGADOS</td>
+            <td class="isquierda">232.000</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h3>MENOS NOMINA</h3>
+            </td>
+        </tr>
+        <tr>
+            <td class="derecha">EMBARGO ALIMENTOS</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">EMBARGO CIVIL</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">LIBRANZA SERVICIO MEDICO SENA</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">AHORRO FONDO DE VIVIENDA</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="derecha">COOPERATIVAS AHORRO</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">COOPERATIVAS PRESTAMO</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">FONDOS DE EMPLEADOS AHORRO</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">FONDOS DE EMPLEADOS PRESTAMO</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">LIBRANZAS ENTIDADES FINANCIERAS</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">OTROS DESCUENTOS</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">TOTAL DEDUCCIONES</td>
+            <td class="isquierda">0</td>
+        </tr>
+        <tr>
+            <td class="derecha">SALARIO NETO</td>
+            <td class="isquierda">232.000</td>
+        </tr>
+        <tr>
+            <td class="derecha">CAPACIDAD DE PAGO DISPONIBLE</td>
+            <td class="isquierda">116.000</td>
+        </tr>
+        <tr>
+            <td class="derecha">OBSERVACION:</td>
+            <td class="isquierda">ESTA CAPACIDAD SE PODRIA VER AFECTADA POR EMBARGOS DE PRESENTARSE EL CASO.</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h3>Vo. Bo. Coordinador Grupo de Gestion del Talento Humano</h3>
+            </td>
+        </tr>
+    </table>
 </body>
+
 </html>
