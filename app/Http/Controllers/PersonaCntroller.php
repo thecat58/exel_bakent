@@ -1,25 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\cargaCertificados;
-use App\Imports\MoraImport;
-use Maatwebsite\Excel\Facades\Excel;
-use PDF;
+use App\Models\Person;
 
-class cargaCertificadosController extends Controller
+class PersonaController extends Controller
 {
-
-
- /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $Mora = cargaCertificados::all();
-        return response()->json($Mora);
+        $persons = Person::all();
+        return response() -> json($persons);
+       
     }
-
-   
 }

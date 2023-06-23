@@ -11,7 +11,7 @@
    body {
         font-family: Arial, sans-serif;
         font-size: 12px;
-        
+
     }
 
     h2, h3 {
@@ -58,11 +58,11 @@
         </tr>
         <tr>
             <td class="isquierda">CÉDULA:</td>
-            <td class="derecha">1.031.133.603</td>
+            <td class="derecha">1.031.133.603</td>01
         </tr>
         <tr>
             <td class="derecha">NOMBRE FUNCIONARIO:</td>
-            <td class="isquierda">BELTRAN PARRA JEISSON ANDRES</td>
+            {{-- <td class="isquierda">{{$Area->nombreInfraestructura}}</td> --}}
         </tr>
         <tr>
             <td class="derecha">ENTIDAD SOLICITANTE:</td>

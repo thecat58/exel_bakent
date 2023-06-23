@@ -52,6 +52,7 @@ use App\Http\Controllers\gestion_infraestructuras\SedeController;
 use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\QueryController;
 use App\Http\Controllers\cargaCertificadosController;
+use App\Http\Controllers\PersonaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -219,4 +220,7 @@ Route::get('search/{table}/{query}',[QueryController::class,'show']);
 
 //nomina
 Route::post('nomina', [cargaCertificadosController::class,'import']);
+
 Route::get('nominaReporte', [cargaCertificadosController::class,'reporte']);
+
+

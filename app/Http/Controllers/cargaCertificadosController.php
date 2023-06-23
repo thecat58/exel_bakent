@@ -24,19 +24,19 @@ class cargaCertificadosController extends Controller
     public function reporte()
     {
         $cargar = cargaCertificados::all();
-    
+
         $pdf = PDF::loadView('reporte', compact('cargar'));
         return $pdf->stream();
 
-        //  return view('reporte', compact('cargar') );
+
     }
- 
+
 
 
     public function import()
     {
         Excel::import(new MoraImport, request()->file('documento'));
         return response()->json(['message' => 'Importación completada']);
-        return response()->json(['error' => 'Mensaje de error'], 400);     
+        return response()->json(['error' => 'Mensaje de error'], 400);
     }
 }

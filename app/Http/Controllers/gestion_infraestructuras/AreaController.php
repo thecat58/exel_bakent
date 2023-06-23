@@ -14,7 +14,8 @@ class AreaController extends Controller
     public function index()
     {
         $data = Area::with('infraestructuras') -> get();
-        return response() -> json($data);
+         return loadView('reporte', ['Area' => $data]);
+        // return response() -> json($data);
     }
 
     /**
@@ -69,17 +70,17 @@ class AreaController extends Controller
             'nombreArea' => 'required',
             'codigo' => 'required'
         ]);
-    
+
         // Encontrar el registro a actualizar en la base de datos
         $registro = Area::findOrFail($id);
-    
+
         // Actualizar los valores del registro
         $registro->nombreArea = $request->nombreArea;
         $registro->codigo = $request->codigo;
-    
+
         // Guardar los cambios en la base de datos
         $registro->save();
-    
+
     }
 
     /**
