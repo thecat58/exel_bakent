@@ -221,6 +221,4 @@ Route::get('search/{table}/{query}',[QueryController::class,'show']);
 //nomina
 Route::post('nomina', [cargaCertificadosController::class,'import']);
 
-Route::get('nominaReporte', [cargaCertificadosController::class,'reporte']);
-
 
