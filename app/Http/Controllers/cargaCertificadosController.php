@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\cargaCertificados;
 use App\Imports\MoraImport;
 use Maatwebsite\Excel\Facades\Excel;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class cargaCertificadosController extends Controller
 {
@@ -24,12 +24,17 @@ class cargaCertificadosController extends Controller
     public function reporte()
     {
         $cargar = cargaCertificados::all();
-
         $pdf = PDF::loadView('reporte', compact('cargar'));
         return $pdf->stream();
-
-
     }
+
+    public function report()
+    {
+        $cargar = cargaCertificados::all();
+        $pdf = PDF::loadView('reporte2', compact('cargar'));
+        return $pdf->stream();
+    }
+
 
 
 

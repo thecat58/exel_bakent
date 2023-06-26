@@ -14,8 +14,7 @@ class AreaController extends Controller
     public function index()
     {
         $data = Area::with('infraestructuras') -> get();
-         return loadView('reporte', ['Area' => $data]);
-        // return response() -> json($data);
+        return response() -> json($data);
     }
 
     /**
