@@ -5,22 +5,34 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            font-size: 12px;
+            font-size: 9px;
+            margin-left: 10%
         }
 
         h2 {
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 7px;
+            font-size: 9px;
+        }
+        h3{
+            font-size: 9px; 
+        }
+        .titulo{
+            text-align: center;
+            margin-bottom: 7px;
+            font-size: 9px;
         }
 
         table {
-            width: 100%;
+            width: 90%;
             border-collapse: collapse;
+           
         }
-
-        td {
-            padding: 5px;
-            border: 1px solid #000;
+        .amarillo{
+            background-color: yellow
+        }
+        .gris{
+            background-color:rgb(202, 195, 195);
         }
     </style>
 </head>
@@ -28,32 +40,32 @@
     <h2>SERVICIO NACIONAL DE APRENDIZAJE SENA</h2>
     <h2>REGIONAL CAUCA</h2>
 
-    <h3>CAPACIDAD DE ENDEUDAMIENTO PARA CREDITOS CON TERCEROS</h3>
+    <h3 class="titulo" >CAPACIDAD DE ENDEUDAMIENTO PARA CREDITOS CON TERCEROS</h3>
 
     <table>
         <tr>
             <td>FECHA ELABORACIÓN:</td>
-            <td>8 de marzo de 2023</td>
+            <td >8 de marzo de 2023</td>
         </tr>
         <tr>
             <td>CÉDULA:</td>
-            <td>12.988.009</td>
+            <td >12.988.009</td>
         </tr>
         <tr>
             <td>NOMBRE FUNCIONARIO:</td>
-            <td>TEZ GETIAL SEGUNDO BUENAVENTURA</td>
+            <td >TEZ GETIAL SEGUNDO BUENAVENTURA</td>
         </tr>
         <tr>
             <td>ENTIDAD SOLICITANTE:</td>
-            <td>COOP. ASOCIADOS LTDA - LIBRANZA</td>
+            <td class="amarillo"  >COOP. ASOCIADOS LTDA - LIBRANZA</td>
         </tr>
         <tr>
             <td>CUOTA SOLICITADA:</td>
-            <td>$839.166</td>
+            <td class="gris" >$839.166</td>
         </tr>
         <tr>
             <td>TIENE CAPACIDAD PAGO:</td>
-            <td></td>
+            <td class="amarillo" ></td>
         </tr>
         <tr>
             <td colspan="2">
@@ -81,8 +93,8 @@
             <td>0</td>
         </tr>
         <tr>
-            <td>TOTAL DEVENGADOS</td>
-            <td>2.257.602</td>
+            <td class="amarillo" >TOTAL DEVENGADOS</td>
+            <td class="amarillo" >2.257.602</td>
         </tr>
         <tr>
             <td colspan="2">
