@@ -14,6 +14,7 @@
         font-family: Arial, sans-serif;
         font-size: 13px;
         margin-left: 15%;
+        margin-right: 16%;
     }
 
     h2 {
@@ -21,8 +22,10 @@
         margin-bottom: 10px;
     }
 
+
     .subt {
         text-align: center;
+        height: 10%;
     }
 
     .izquierda {
@@ -48,7 +51,6 @@
     }
 
     .container {
-        border: 1px solid black;
         padding: 10px;
         margin-bottom: 10px;
     }
@@ -65,8 +67,24 @@
     .column {
         flex: 1;
         padding: 10px;
-        border: 1px solid black;
         margin-right: 10px;
+        padding: 20px;
+    }
+
+    .borde {
+        border-top: 1px solid black;
+        border-bottom-width: 1px;
+        border-bottom-color: black;
+    }
+    p{
+        padding: 15px;
+    }
+    .final{
+        text-align: center;
+        margin: 5%;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        margin-left: 9%;
     }
 </style>
 
@@ -100,7 +118,7 @@
             <td class="izquierda">ENTIDAD SOLICITANTE:</td>
             <td id="infoUser">COOPSENA</td>
         </tr>
-        <tr  >
+        <tr>
             <td class="izquierda">CUOTA SOLICITADA:</td>
             <td style="background-color: rgb(185, 173, 173)" id="infoUser">$1.623.432</td>
         </tr>
@@ -129,8 +147,8 @@
             <td class="izquierda">PRIMA DE LOCALIZACION</td>
             <td class="derecha">0</td>
         </tr>
-        <tr style="background-color: yellow">
-            <td  class="izquierda">TOTAL DEVENGADOS</td>
+        <tr class="borde" style="background-color: yellow">
+            <td class="izquierda">TOTAL DEVENGADOS</td>
             <td class="derecha">232.000</td>
         </tr>
         <tr>
@@ -178,7 +196,7 @@
             <td class="izquierda">OTROS DESCUENTOS</td>
             <td class="derecha">0</td>
         </tr>
-        <tr style="background-color: yellow" >
+        <tr class="borde" style="background-color: yellow">
             <td class="izquierda">TOTAL DEDUCCIONES</td>
             <td class="derecha">0</td>
         </tr>
@@ -186,20 +204,20 @@
             <td class="izquierda">SALARIO NETO</td>
             <td class="derecha">232.000</td>
         </tr>
-        <tr style="background-color: rgb(240, 167, 179)" >
+        <tr style="background-color: rgb(240, 167, 179)">
             <td class="izquierda">CAPACIDAD DE PAGO DISPONIBLE</td>
             <td class="derecha">116.000</td>
         </tr>
     </table>
 
-        <div>
-            <p>OBSERVACION: ESTA CAPACIDAD SE PODRIA VER AFECTADA POR EMBARGOS DE PRESENTARSE EL CASO.</p>
+    <div>
+        <p>OBSERVACION: ESTA CAPACIDAD SE PODRIA VER AFECTADA POR EMBARGOS DE PRESENTARSE EL CASO.</p>
 
-        </div>
-        <table>
-            <td colspan="2">
-                <h3>Vo. Bo. Coordinador Grupo de Gestion del Talento Humano</h3>
-            </td>
+    </div>
+    <table class="final" >
+        <td  colspan="2">
+            <h3>Vo. Bo. Coordinador Grupo de Gestion del Talento Humano</h3>
+        </td>
         </tr>
     </table>
 
