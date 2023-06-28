@@ -35,8 +35,6 @@ class MoraImport implements ToModel, WithHeadingRow
             'descripcionClaseNomina' => $row['descripcionclasenomina'] ?? null,
             'nombreCargo' => $row['nombrecargo'] ?? null,
 
-
-
         ]);
     }
 

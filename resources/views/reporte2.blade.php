@@ -15,7 +15,7 @@
             font-size: 9px;
         }
         h3{
-            font-size: 9px; 
+            font-size: 9px;
         }
         .titulo{
             text-align: center;
@@ -26,7 +26,7 @@
         table {
             width: 90%;
             border-collapse: collapse;
-           
+
         }
         .amarillo{
             background-color: yellow
@@ -49,11 +49,11 @@
         </tr>
         <tr>
             <td>CÉDULA:</td>
-            <td >12.988.009</td>
+            <td >1031133603</td>
         </tr>
         <tr>
             <td>NOMBRE FUNCIONARIO:</td>
-            <td >TEZ GETIAL SEGUNDO BUENAVENTURA</td>
+            <td >jorge enrique muñoz</td>
         </tr>
         <tr>
             <td>ENTIDAD SOLICITANTE:</td>
