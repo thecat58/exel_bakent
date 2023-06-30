@@ -17,8 +17,12 @@ class cargaCertificadosController extends Controller
      */
     public function index()
     {
-        $Mora = cargaCertificados::all();
-        return response()->json($Mora);
+        // $Mora = cargaCertificados::all();
+         // return response()->json($Mora);
+        // $Mora['cargaCertificados']=cargaCertificados::class;
+        // return view('reporte3', $Mora);
+        $mora['cargaCertificado'] = cargaCertificados::first();
+    return view('reporte3', $mora);
     }
 
     public function reporte()

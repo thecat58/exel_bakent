@@ -223,6 +223,6 @@ Route::post('nomina', [cargaCertificadosController::class,'import']);
 //exel 1
  Route::get('nominaReporte', [cargaCertificadosController::class,'reporte']);
 //exel 2
-Route::get('Reporte', [cargaCertificadosController::class,'report']);
+Route::get('Reporte', [cargaCertificadosController::class,'index']);
 
 
