@@ -108,11 +108,11 @@
         </tr>
         <tr>
             <td class="izquierda">CÉDULA:</td>
-            <td id="infoUser">1.031.133.603</td>01
+            <td id="infoUser"> {{ number_format($identificacion, 0, '.', '.') }} </td>
         </tr>
         <tr>
             <td class="izquierda">NOMBRE FUNCIONARIO:</td>
-            <td id="infoUser">jorge enrique muñoz</td>
+            <td id="infoUser"> {{ $nombres }} </td>
         </tr>
         <tr>
             <td class="izquierda">ENTIDAD SOLICITANTE:</td>

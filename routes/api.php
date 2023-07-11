@@ -220,9 +220,8 @@ Route::get('search/{table}/{query}',[QueryController::class,'show']);
 
 //nomina
 Route::post('nomina', [cargaCertificadosController::class,'import']);
-//exel 1
- Route::get('nominaReporte', [cargaCertificadosController::class,'reporte']);
-//exel 2
-Route::get('Reporte', [cargaCertificadosController::class,'index']);
 
+Route::get('reporte1/{identificacion}',[cargaCertificadosController::class,'reporte1']);
+
+Route::get('Reporte', [cargaCertificadosController::class,'report']);
 

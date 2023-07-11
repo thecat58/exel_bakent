@@ -19,8 +19,6 @@
             text-align: right;
             position: relative;
         }
-
-
         h2 {
             text-align: center;
             margin-bottom: 7px;
@@ -30,6 +28,17 @@
         h3 {
             font-size: 9px;
         }
+        .pie{
+            margin-top: 35px;
+        }
+        .piepagina{
+            padding: 9px;
+        }
+
+        .final {
+           margin-left: 120px;
+            padding: 10%;
+        }
 
         .titulo {
             text-align: center;
@@ -38,9 +47,8 @@
         }
 
         table {
-            width: 90%;
+            width: 89%;
             border-collapse: collapse;
-
         }
 
         .derecha_amarillo {
@@ -48,11 +56,10 @@
             text-align: right;
             position: relative;
         }
-        .amarillo{
+
+        .amarillo {
             background-color: yellow;
         }
-
-
     </style>
 </head>
 
@@ -69,11 +76,11 @@
         </tr>
         <tr>
             <td>CÉDULA:</td>
-            <td>1031133603</td>
+            <td>{{ number_format($identificacion, 0, '.', '.') }} </td>
         </tr>
         <tr>
             <td>NOMBRE FUNCIONARIO:</td>
-            <td>jorge enrique muñoz</td>
+            <td>{{ $nombres }}</td>
         </tr>
         <tr>
             <td>ENTIDAD SOLICITANTE:</td>
@@ -98,19 +105,19 @@
         </tr>
         <tr>
             <td>SUBSIDIO DE ALIMENTACION</td>
-            <td class="derecha " >232.000</td>
+            <td class="derecha ">232.000</td>
         </tr>
         <tr>
             <td>PRIMA TECNICA NO FACTOR SALARIO</td>
-            <td class="derecha "  >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>PRIMA TECNICA FACTOR SALARIO</td>
-            <td class="derecha "  >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>PRIMA DE LOCALIZACION</td>
-            <td class="derecha "  >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td class="amarillo">TOTAL DEVENGADOS</td>
@@ -123,34 +130,34 @@
         </tr>
         <tr>
             <td>APORTE PENSION</td>
-            <td class="derecha "  >116.000</td>
+            <td class="derecha ">116.000</td>
         </tr>
         <tr>
             <td>APORTE SALUD</td>
-            <td class="derecha " >116.000</td>
+            <td class="derecha ">116.000</td>
         </tr>
         <tr>
             <td>FONDO SOLIDARIDAD</td>
-            <td class="derecha " >0</td </tr>
+            <td class="derecha ">0</td </tr>
         <tr>
             <td>FONDO DE SUBSISTENCIA LEY 797/2003</td>
-            <td class="derecha " ></td>
+            <td class="derecha "></td>
         </tr>
         <tr>
             <td>RETENCION EN LA FUENTE</td>
-            <td class="derecha " >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>TOTAL DEDUCCIONES DE LEY</td>
-            <td class="derecha " >232.000</td>
+            <td class="derecha ">232.000</td>
         </tr>
         <tr>
             <td>SALARIO NETO</td>
-            <td class="derecha " >2.025.602</td>
+            <td class="derecha ">2.025.602</td>
         </tr>
         <tr>
             <td>CAPACIDAD DE PAGO 50% DEL SALARIO NETO (LEY 1527 / 2012)</td>
-            <td class="derecha " >1.012.801</td>
+            <td class="derecha ">1.012.801</td>
         </tr>
         <tr>
             <td colspan="2">
@@ -159,84 +166,84 @@
         </tr>
         <tr>
             <td>EMBARGO ALIMENTOS</td>
-            <td class="derecha " >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>EMBARGO CIVIL</td>
-            <td class="derecha " >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>PRESTAMO DE VIVENDA</td>
-            <td class="derecha " >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>SEGURO DE INCENDIO (VIVIENDA)</td>
-            <td class="derecha " >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>SEGURO DE VIDA (VIVIENDA)</td>
-            <td class="derecha " >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>LIBRANZA SERVICIO MEDICO SENA</td>
-            <td class="derecha "  >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>AHORRO FONDO DE VIVIENDA</td>
-            <td class="derecha " >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>COOPERATIVAS AHORRO</td>
-            <td class="derecha "  >247.992</td>
+            <td class="derecha ">247.992</td>
         </tr>
         <tr>
             <td>COOPERATIVAS PRESTAMO</td>
-            <td class="derecha " >761.123</td>
+            <td class="derecha ">761.123</td>
         </tr>
         <tr>
             <td>FONDOS DE EMPLEADOS AHORRO</td>
-            <td class="derecha " >202.560</td>
+            <td class="derecha ">202.560</td>
         </tr>
         <tr>
             <td>FONDOS DE EMPLEADOS PRESTAMO</td>
-            <td class="derecha " >158.845</td>
+            <td class="derecha ">158.845</td>
         </tr>
         <tr>
             <td>LIBRANZAS ENTIDADES FINANCIERAS</td>
-            <td class="derecha " ></td>
+            <td class="derecha "></td>
         </tr>
         <tr>
             <td>PREVENCION EXEQUIAL</td>
-            <td class="derecha " >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>MEDICINA PREPAGADA</td>
-            <td class="derecha " >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>AHORRO VOLUNTARIO PENSION</td>
-            <td class="derecha "  >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>AFC AHORRO FONDO DE LA CONSTRUCCION</td>
 
-            <td class="derecha "  >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>SINDICATOS</td>
-            <td class="derecha "  >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>PRESTAMO CALAMIDAD DOMESTICA</td>
-            <td class="derecha "  >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>SERVICOS EXEQUIALES</td>
-            <td class="derecha "  >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>OTROS DESCUENTOS</td>
-            <td class="derecha "  >0</td>
+            <td class="derecha ">0</td>
         </tr>
         <tr>
             <td>TOTAL OTRAS DEDUCCIONES DE NOMINA</td>
@@ -244,29 +251,26 @@
         </tr>
         <tr>
             <td>CAPACIDAD DE PAGO DISPONIBLE</td>
-            <td class="derecha " >-357.719</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h3>REFINANCIA DEUDA:</h3>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h3>OBSERVACIONES:</h3>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h3>Vo. Bo. Salarios</h3>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h3>Autoriza Coordinador Grupo Regional Gestion del Talento Humano</h3>
-            </td>
+            <td class="derecha ">-357.719</td>
         </tr>
     </table>
+
+  <div class="pie"  >
+     <h3 class="piepagina" >REFINANCIA DEUDA:</h3>
+        <h3 class="piepagina" >OBSERVACIONES:</h3>
+  </div>
+       
+   
+    <div class="pie" >
+        <h3>Vo. Bo. Salarios</h3>
+    </div>
+
+
+    <h3 class="final">
+        Autoriza Coordinador Grupo Regional Gestion del Talento Humano</h3>
+
+
+
 </body>
 
 </html>
