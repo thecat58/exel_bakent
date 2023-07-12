@@ -84,7 +84,7 @@
         </tr>
         <tr>
             <td>ENTIDAD SOLICITANTE:</td>
-            <td class="amarillo">COOP. ASOCIADOS LTDA - LIBRANZA</td>
+            <td class="amarillo">{{$nombreEmpresa}}</td>
         </tr>
         <tr>
             <td>CUOTA SOLICITADA:</td>

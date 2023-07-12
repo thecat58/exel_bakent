@@ -26,7 +26,7 @@ class cargaCertificadosController extends Controller
 
     public function reporte1(string $identificacion)
     {
-    
+
         $datos = cargaCertificados::where('identificacion', $identificacion)->first();
 
         if (!$datos) {
@@ -42,19 +42,25 @@ class cargaCertificadosController extends Controller
     public function report(Request $request)
     {
         $identificacion = $request->input('identificacion');
-
+        $nombreEmpresa = $request->input('empresa');
+    
         $datos = cargaCertificados::where('identificacion', $identificacion)->first();
-
+    
         if (!$datos) {
             // Manejar el caso cuando no se encuentra el registro
             return response()->json(['message' => 'No se encontró ningún registro con la identificación especificada.']);
         }
-
+    
         $datosArray = $datos->toArray();
-
+    
+        // Pasar el nombre de la empresa a la vista
+        $datosArray['nombreEmpresa'] = $nombreEmpresa;
+    
         $pdf = PDF::loadView('reporte2', $datosArray);
         return $pdf->stream();
     }
+    
+
 
     public function ejecutarProcedimiento()
     {

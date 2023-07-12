@@ -223,5 +223,4 @@ Route::post('nomina', [cargaCertificadosController::class,'import']);
 
 Route::get('reporte1/{identificacion}',[cargaCertificadosController::class,'reporte1']);
 
-Route::get('Reporte', [cargaCertificadosController::class,'report']);
-
+Route::post('reporte2', [cargaCertificadosController::class, 'report']);
