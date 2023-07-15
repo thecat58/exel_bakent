@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\evidencia;
 use Illuminate\Http\Request;
 
+
 class EvidenciaController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class EvidenciaController extends Controller
      */
     public function index()
     {
-        //
+        $files = [];
+        // return view ('files',["files"=>$files]);
     }
 
     /**
@@ -25,7 +27,26 @@ class EvidenciaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->isMethod('post')) {
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $fileName = $file->getClientOriginalName();
+                $filePath = 'evidencia/' . $fileName;
+                $file->storeAs('public/' . $filePath, $fileName);
+    
+                // Crear y guardar el registro en la base de datos
+                $evidencia = new Evidencia();
+                $evidencia->nombre = $request->input('nombre');
+                $evidencia->descripcion = $request->input('descripcion');
+                $evidencia->rutaEvidencia = $filePath;
+                $evidencia->idResultado = $request->input('idResultado');
+                $evidencia->save();
+    
+                return response()->json(['message' => 'Importación completada']);
+            } else {
+                return response()->json(['message' => 'No se proporcionó ningún archivo'], 400);
+            }
+        }
     }
 
     /**

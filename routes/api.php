@@ -52,6 +52,7 @@ use App\Http\Controllers\gestion_infraestructuras\SedeController;
 use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\QueryController;
 use App\Http\Controllers\cargaCertificadosController;
+use App\Http\Controllers\EvidenciaController;
 use App\Http\Controllers\PersonaController;
 
 /*
@@ -224,3 +225,5 @@ Route::post('nomina', [cargaCertificadosController::class,'import']);
 Route::get('reporte1/{identificacion}',[cargaCertificadosController::class,'reporte1']);
 
 Route::post('reporte2', [cargaCertificadosController::class, 'report']);
+// evidencias
+Route::resource('evidencias', EvidenciaController::class);
