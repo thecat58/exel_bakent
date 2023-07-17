@@ -13,10 +13,32 @@ class EvidenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function show($id)
     {
-        $files = [];
-        // return view ('files',["files"=>$files]);
+       $evidencia = evidencia::findOrFail($id);
+
+    $rutaArchivo = storage_path('app/public/evidencia' . $evidencia->rutaEvidencia);
+
+    if (!file_exists($rutaArchivo)) {
+        return response()->json(['message' => 'El archivo no existe'], 404);
+    }
+
+    $contenido = file_get_contents($rutaArchivo);
+
+    // Obtener el tipo MIME del archivo para devolver la respuesta adecuada
+    $mimeType = mime_content_type($rutaArchivo);
+
+    // Generar la respuesta con el contenido del archivo y el tipo de contenido adecuado
+    $response = response($contenido, 200, [
+        'Content-Type' => $mimeType,
+        'Content-Disposition' => 'inline; filename="' . $evidencia->nombre . '"'
+    ]);
+
+    // Agregar la URL de visualización al registro de evidencia
+    $evidencia->url_visualizacion = route('evidencias.visualizar', ['id' => $evidencia->id]);
+
+    // Devolver el registro de evidencia junto con la URL de visualización en formato JSON
+    return response()->json($evidencia);
     }
 
     /**
@@ -31,17 +53,16 @@ class EvidenciaController extends Controller
             if ($request->hasFile('file')) {
                 $file = $request->file('file');
                 $fileName = $file->getClientOriginalName();
-                $filePath = 'evidencia/' . $fileName;
-                $file->storeAs('public/' . $filePath, $fileName);
-    
-                // Crear y guardar el registro en la base de datos
+                $filePath = 'evidencia' . $fileName;
+                $file->storeAs('public' . $filePath, $fileName);
                 $evidencia = new Evidencia();
                 $evidencia->nombre = $request->input('nombre');
                 $evidencia->descripcion = $request->input('descripcion');
+                $evidencia->codigo = $request->input('codigo');
                 $evidencia->rutaEvidencia = $filePath;
                 $evidencia->idResultado = $request->input('idResultado');
                 $evidencia->save();
-    
+
                 return response()->json(['message' => 'Importación completada']);
             } else {
                 return response()->json(['message' => 'No se proporcionó ningún archivo'], 400);
@@ -55,10 +76,10 @@ class EvidenciaController extends Controller
      * @param  \App\Models\evidencia  $evidencia
      * @return \Illuminate\Http\Response
      */
-    public function show(evidencia $evidencia)
-    {
-        //
-    }
+    // public function show(evidencia $evidencia)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.

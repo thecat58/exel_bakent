@@ -18,6 +18,7 @@ class CreateEvidenciasTable extends Migration
             $table->string('nombre');
             $table->text('descripcion');
             $table->string('rutaEvidencia');
+            $table->string('codigo');
             $table->unsignedInteger('idResultado');
             $table->foreign('idResultado')->references('id')->on('resultadoAprendizaje')->onDelete('cascade');
             $table->timestamps();
