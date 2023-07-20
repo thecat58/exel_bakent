@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\evidencia;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 
 class EvidenciaController extends Controller
 {
@@ -13,33 +13,31 @@ class EvidenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-       $evidencia = evidencia::findOrFail($id);
 
-    $rutaArchivo = storage_path('app/public/evidencia' . $evidencia->rutaEvidencia);
+     public function index($id)
+{
+    $evidencia = evidencia::findOrFail($id);
 
+    // Obtener la ruta completa del archivo
+    $rutaArchivo = storage_path('app/public/' . $evidencia->rutaEvidencia);
+
+    // Verificar si el archivo existe
     if (!file_exists($rutaArchivo)) {
         return response()->json(['message' => 'El archivo no existe'], 404);
     }
 
+    // Leer el contenido del archivo
     $contenido = file_get_contents($rutaArchivo);
-
-    // Obtener el tipo MIME del archivo para devolver la respuesta adecuada
-    $mimeType = mime_content_type($rutaArchivo);
 
     // Generar la respuesta con el contenido del archivo y el tipo de contenido adecuado
     $response = response($contenido, 200, [
-        'Content-Type' => $mimeType,
+        'Content-Type' => 'application/pdf',
         'Content-Disposition' => 'inline; filename="' . $evidencia->nombre . '"'
     ]);
 
-    // Agregar la URL de visualización al registro de evidencia
-    $evidencia->url_visualizacion = route('evidencias.visualizar', ['id' => $evidencia->id]);
+    return $response;
+}
 
-    // Devolver el registro de evidencia junto con la URL de visualización en formato JSON
-    return response()->json($evidencia);
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -53,8 +51,9 @@ class EvidenciaController extends Controller
             if ($request->hasFile('file')) {
                 $file = $request->file('file');
                 $fileName = $file->getClientOriginalName();
-                $filePath = 'evidencia' . $fileName;
-                $file->storeAs('public' . $filePath, $fileName);
+                $filePath = 'evidencia/' . $fileName; // Aseguramos que la ruta sea "evidencia/nombreDelArchivo"
+                $file->storeAs('public', $filePath); // Solo necesitamos guardar el nombre del archivo dentro de la carpeta public
+
                 $evidencia = new Evidencia();
                 $evidencia->nombre = $request->input('nombre');
                 $evidencia->descripcion = $request->input('descripcion');

@@ -226,4 +226,4 @@ Route::get('reporte1/{identificacion}',[cargaCertificadosController::class,'repo
 
 Route::post('reporte2', [cargaCertificadosController::class, 'report']);
 // evidencias
-Route::resource('evidencias', EvidenciaController::class);
+Route::get('evidencias/{id}', [EvidenciaController::class,'index']);
