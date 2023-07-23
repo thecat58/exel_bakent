@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\evidencia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class EvidenciaController extends Controller
 {
@@ -13,30 +14,39 @@ class EvidenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+  
 
-     public function index($id)
-{
-    $evidencia = evidencia::findOrFail($id);
+     public function index()
+     {
+         $evidencias = evidencia::all();
+     
+         return $evidencias;
+     
+     }
 
-    // Obtener la ruta completa del archivo
-    $rutaArchivo = storage_path('app/public/' . $evidencia->rutaEvidencia);
-
-    // Verificar si el archivo existe
-    if (!file_exists($rutaArchivo)) {
-        return response()->json(['message' => 'El archivo no existe'], 404);
-    }
-
-    // Leer el contenido del archivo
-    $contenido = file_get_contents($rutaArchivo);
-
-    // Generar la respuesta con el contenido del archivo y el tipo de contenido adecuado
-    $response = response($contenido, 200, [
-        'Content-Type' => 'application/pdf',
-        'Content-Disposition' => 'inline; filename="' . $evidencia->nombre . '"'
-    ]);
-
-    return $response;
-}
+     public function verDocumento($id)
+     {
+         $documento = evidencia::findOrFail($id);
+     
+         // Obtener la ruta completa del archivo
+         $rutaArchivo = storage_path('app/public/' . $documento->rutaEvidencia);
+     
+         // Verificar si el archivo existe
+         if (!file_exists($rutaArchivo)) {
+             return response()->json(['message' => 'El archivo no existe'], 404);
+         }
+     
+         // Leer el contenido del archivo
+         $contenido = file_get_contents($rutaArchivo);
+     
+         // Generar la respuesta con el contenido del archivo y el tipo de contenido adecuado
+         $response = response($contenido, 200, [
+             'Content-Type' => 'application/pdf',
+             'Content-Disposition' => 'inline; filename="' . $documento->nombre . '"'
+         ]);
+     
+         return $response;
+     }
 
 
     /**
@@ -75,10 +85,10 @@ class EvidenciaController extends Controller
      * @param  \App\Models\evidencia  $evidencia
      * @return \Illuminate\Http\Response
      */
-    // public function show(evidencia $evidencia)
-    // {
-    //     //
-    // }
+    public function show(evidencia $evidencia)
+    {
+        //
+    }
 
     /**
      * Update the specified resource in storage.
@@ -98,8 +108,28 @@ class EvidenciaController extends Controller
      * @param  \App\Models\evidencia  $evidencia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(evidencia $evidencia)
-    {
-        //
+    public function destroy($id)
+{
+    // Buscar el registro de la evidencia por su ID
+    $evidencia = evidencia::find($id);
+
+    // Verificar si el registro existe
+    if (!$evidencia) {
+        return response()->json(['message' => 'Registro no encontrado'], 404);
     }
+
+    // Obtener la ruta completa del archivo
+    $rutaArchivo = storage_path('app/public/' . $evidencia->rutaEvidencia);
+
+    // Verificar si el archivo existe y eliminarlo
+    if (file_exists($rutaArchivo)) {
+        unlink($rutaArchivo);
+    }
+
+    // Eliminar el registro de la base de datos
+    $evidencia->delete();
+
+    // Retornar una respuesta con el mensaje de éxito
+    return response()->json(['message' => 'Registro y archivo eliminados correctamente'], 200);
+}
 }
